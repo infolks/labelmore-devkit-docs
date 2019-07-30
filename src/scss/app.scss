@@ -4,12 +4,6 @@
 
 @import './fonts';
 
-* {
-    padding: 0;
-    margin: 0;
-}
-
-html, body {
-    font-family: $font-family;
-    color: color(dark);
-}
+@import './site';
+@import "./utiltites";
+@import "./components";

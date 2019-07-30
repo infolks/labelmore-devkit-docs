@@ -1,0 +1,82 @@
+/*
+ +==========================================
+ + Site
+ +==========================================
+*/ 
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: $font-family-base;
+    color: color(dark);
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    @include responsive-text($font-size-base)
+}
+
+a, p, th, td, li, span, div {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+}
+
+a {
+    color: color(primary);
+    text-decoration: none;
+    transition: color 0.3s ease-in;
+    cursor: pointer;
+
+    &:hover {
+        color: lighten(color(primary), 10%);
+    }
+}
+
+/*
+ +==========================================
+ + Themes
+ +==========================================
+*/ 
+.theme-light {
+    color: color(dark);
+}
+
+.theme-dark {
+    color: color(light);
+
+    a {
+        color: color(muted);
+
+        &:hover {
+            color: darken(color(muted), 5%);
+        }
+    }
+}
+
+/*
+ |----------------------------------------
+ | Scrollbar
+ |----------------------------------------
+*/
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparentize(color(dark), 0.75);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: lighten(color(secondary), 5%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darken(color(secondary), 5%)
+}

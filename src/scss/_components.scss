@@ -1,0 +1,366 @@
+/*
+ +==========================================
+ + Components
+ +==========================================
+*/
+
+/*
+ |------------------------------------------
+ | Section
+ |------------------------------------------
+*/
+
+.section {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+/*
+ |------------------------------------------
+ | Heading
+ |------------------------------------------
+*/
+
+@each $size, $font-size in $headings {
+
+    .heading-#{$size} {
+        font-weight: 300;
+
+        @include responsive-text($font-size)
+    }
+}
+
+.heading-divider {
+
+    border-bottom: $border-width $border-style $border-color;
+}
+
+/*
+ |------------------------------------------
+ | Container
+ |------------------------------------------
+*/
+
+.container {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @each $break, $width in $breakpoints {
+
+        @if container($break) {
+
+            @include responsive-break($break) {
+                max-width: container($break);
+            }
+        }
+    }
+}
+
+/*
+ |------------------------------------------
+ | Button
+ |------------------------------------------
+*/
+
+$button-padding         : $spacing !default;
+$button-padding-small   : $spacing-small !default;
+$button-padding-large   : $spacing-large !default;
+
+
+$button-font-size       : $font-size-small !default;
+$button-font-weight     : map-get($font-weights, medium) !default;
+
+@mixin button-icon-padding ($pad) {
+    &.button-icon-left {
+        padding-left: $pad;
+    }
+
+    &.button-icon-right {
+        padding-right: $pad;
+    }
+}
+
+.button {
+    border: none;
+    padding: $button-padding $button-padding*2;
+    display: inline-flex;
+    align-items: center;
+    font-weight: $button-font-weight;
+    font-size: $button-font-size;
+    text-transform: uppercase;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    @include button-icon-padding($button-padding);
+
+    &.button-small {
+        font-size: $button-font-size * 0.75;
+        padding: $button-padding-small $button-padding-small * 2;
+
+        @include button-icon-padding($button-padding-small);
+    }
+
+    &.button-large {
+        font-size: $button-font-size * 1.25;
+        padding: $button-padding-large $button-padding-large*2;
+
+        @include button-icon-padding($button-padding-large);
+    }
+
+    @each $key, $color in $colors {
+        
+        &.button-#{$key} {
+            &.button-block {
+                background: $color;
+                color: color(light);
+                transition: background 0.3s ease-in;
+
+                &:hover {
+                    background: lighten($color, 10%);
+                }
+            }
+
+            &.button-basic {
+                color: $color;
+                opacity: 0.8;
+                transition: opacity 0.3s ease-in;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+        }
+    }
+}
+
+/*
+ |------------------------------------------
+ | Navbar
+ |------------------------------------------
+*/
+
+$navbar-height              : 80px;
+$navbar-height-small        : 60px;
+
+.navbar {
+
+    display: flex;
+    height: $navbar-height-small;
+    align-items: center;
+    padding: 0 1rem;
+
+    ul.navbar-nav {
+        list-style-type: none;
+        display: flex;
+
+        a {
+            display: flex;
+            color: color(light);
+            opacity: 0.8;
+            height: $navbar-height-small;
+            align-items: center;
+            min-width: 80px;
+
+            &.active {
+                opacity: 1;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .nav-item {
+        margin: 0 $spacing-small;
+
+    }
+
+    .nav-logo {
+        font-size: $font-size-large;
+    }
+
+    .nav-right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    @media screen and (min-width: breakpoint(medium)) {
+        height: $navbar-height;
+    }
+}
+
+/*
+ |------------------------------------------
+ | Grid
+ |------------------------------------------
+*/
+
+$grid-column-count      : 12;
+
+.grid {
+    display: flex;
+
+    [class^="col-"] {
+        box-sizing: border-box;
+    }
+
+    @for $i from 1 through $grid-column-count {
+
+        .col-#{$i} {
+            width: $i/$grid-column-count*100%;
+        }
+
+        @each $break, $size in $breakpoints {
+
+            @include responsive-break($break) {
+
+                .col-#{$break}-#{$i} {
+                    width: $i/$grid-column-count*100%;
+                }
+            }
+        }
+    }
+
+    .col-auto {
+        width: auto;
+    }
+
+    .col-expand {
+        flex: 1;
+    }
+
+    @each $break, $size in $breakpoints {
+
+        @include responsive-break($break) {
+
+            .col-#{$break}-auto {
+                width: auto;
+            }
+
+            .col-#{$break}-expand {
+                flex: 1;
+            }
+        }
+    }
+
+}
+
+/*
+ |------------------------------------------
+ | List
+ |------------------------------------------
+*/
+
+ul.list {
+    list-style-type: none;
+}
+
+.list {
+
+    .list-item {
+        display: block;
+        padding: $spacing-small $spacing-small*2;
+    }
+
+    &.list-bullet {
+
+        li {
+            &::before {
+                content: '•';
+                margin-right: $spacing/2;
+            }
+        }
+
+    }
+
+    @each $key, $color in $colors {
+        &.list-bullet-#{$key} {
+
+            li {
+                &::before {
+                    content: '•';
+                    margin-right: $spacing/2;
+                    color: $color;
+                }
+            }
+    
+        }
+    }
+
+    &.list-relaxed {
+        .list-item {
+            padding: $spacing $spacing*2;
+        }
+    }
+
+    &.list-hover {
+        .list-item:hover {
+            transition: all 0.3s ease-in-out;
+            background: transparentize(color(primary), 0.95);
+        }
+    }
+
+    &.list-divider {
+
+        .list-item {
+            border-bottom: $border-width $border-style $border-color;
+        }
+    }
+}
+
+/*
+ |------------------------------------------
+ | Table
+ |------------------------------------------
+*/
+
+table.table {
+    border-collapse: collapse;
+    width: 100%;
+
+    tr {
+        td,th {
+            padding: $spacing;
+            border: $border-width $border-style $border-color;
+        }
+
+        th {
+            text-align: left;
+            font-weight: 500;
+            color: color(primary);
+            background: color(muted);
+        }
+    }
+}
+
+
+.label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    padding: 0.3rem;
+    border-radius: 2px;
+    font-weight: 500;
+
+    @each $key, $color in $colors {
+
+        &.label-text-#{$key} {
+            color: $color;
+        }
+
+        &.label-#{$key} {
+            background: $color;
+            color: color(light);
+        }
+    }
+
+    &.label-light, &.label-muted {
+        color: color(dark);
+    }
+}

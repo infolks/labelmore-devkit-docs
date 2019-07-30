@@ -1,3 +1,26 @@
 @function color($name) {
     @return map-get($colors, $name)
-}
+};
+
+@function breakpoint($name) {
+    @return map-get($breakpoints, $name)
+};
+
+@function breakpoint-max($name) {
+
+    $breakpoints-max: (
+        large   : breakpoint(xlarge) - 1,
+        medium  : breakpoint(large) - 1,
+        small   : breakpoint(medium) - 1
+    );
+
+    @return map-get($breakpoints-max, $name)
+};
+
+@function container($name) {
+    @return map-get($containers, $name)
+};
+
+@function heading($size) {
+    @return map-get($headings, $size)
+};

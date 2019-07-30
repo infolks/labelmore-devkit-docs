@@ -1,0 +1,391 @@
+/*
+ +==========================================
+ + Utility
+ +==========================================
+*/ 
+
+/*
+ |------------------------------------------
+ | Color Utilities
+ |------------------------------------------
+*/
+@each $key, $color in $colors {
+
+    .bg-#{$key} {
+        background-color: $color !important;
+    }
+
+    .text-#{$key} {
+        color: $color !important;
+    }
+
+    .border-#{$key} {
+        border-color: $color !important;
+    }
+}
+
+/*
+ |------------------------------------------
+ | Text Alignment
+ |------------------------------------------
+*/
+@each $alignment in 'left' 'center' 'right' 'justify' {
+
+    .text-#{$alignment} {
+        text-align: #{$alignment}
+    } 
+}
+
+/*
+ |------------------------------------------
+ | Font weights
+ |------------------------------------------
+*/
+@each $key, $weight in $font-weights {
+
+    .text-#{$key} {
+        font-weight: $weight !important;
+    }
+}
+
+/*
+ |------------------------------------------
+ | Meta text
+ |------------------------------------------
+*/
+.text-meta {
+    opacity: 0.7;
+}
+
+/*
+ |------------------------------------------
+ | Text styles
+ |------------------------------------------
+*/
+.text-upper {
+    text-transform: uppercase;
+}
+.text-capitalize {
+    text-transform: capitalize;
+}
+.text-lower {
+    text-transform: lowercase;
+}
+.text-smallcaps {
+    font-variant: small-caps;
+}
+.text-oblique {
+    font-style: oblique;
+}
+.text-italic {
+    font-style: italic;
+}
+.text-striked {
+    text-decoration: line-through;
+}
+.text-overline {
+    text-decoration: overline;
+}
+.text-underline {
+    text-decoration: underline;
+}
+
+/*
+ |------------------------------------------
+ | Text Size
+ |------------------------------------------
+*/
+
+.text-small {
+    font-size: $font-size-small !important;
+}
+
+.text-large {
+    font-size: $font-size-large !important;
+}
+
+
+/*
+ |------------------------------------------
+ | Margins
+ |------------------------------------------
+*/
+
+$margin-vals : (small: $spacing-small, medium: $spacing, large: $spacing-large, auto: auto, remove: 0);
+
+@each $key, $space in $margin-vals{
+
+    .m-#{$key} {
+        margin: $space !important;
+    }
+}
+
+@for $i from 2 through 10 {
+
+    .m-#{$i} {
+        margin: $spacing*$i !important;
+    }
+}
+
+
+// horizontal
+.m-horizontal {
+    margin-left: $spacing !important;
+    margin-right: $spacing !important;
+
+}
+
+@each $key, $space in $margin-vals {
+
+    .m-horizontal-#{$key} {
+        margin-left: $space !important;
+        margin-right: $space !important;
+    }
+}
+
+@for $i from 2 through 10 {
+
+    .m-horizontal-#{$i} {
+        margin-left: $spacing*$i !important;
+        margin-right: $spacing*$i !important;
+    }
+}
+
+// vertical
+.m-vertical {
+    margin-top: $spacing !important;
+    margin-bottom: $spacing !important;
+}
+
+@each $key, $space in $margin-vals {
+
+    .m-vertical-#{$key} {
+        margin-top: $space !important;
+        margin-bottom: $space !important;
+    }
+}
+
+@for $i from 2 through 10 {
+
+    .m-vertical-#{$i} {
+        margin-top: $spacing*$i !important;
+        margin-bottom: $spacing*$i !important;
+    }
+}
+
+// sides
+@each $side in 'top' 'right' 'bottom' 'left' {
+
+    .m-#{$side} {
+        margin-#{$side}: $spacing !important;
+    }
+
+    @each $key, $space in $margin-vals {
+
+        .m-#{$side}-#{$key} {
+            margin-#{$side}: $space !important;
+        }
+    }
+
+    @for $i from 2 through 10 {
+
+        .m-#{$side}-#{$i} {
+            margin-#{$side}: $spacing*$i !important;
+        }
+    }
+}
+
+/*
+ |------------------------------------------
+ | Padding
+ |------------------------------------------
+*/
+$padding-vals : (small: $spacing-small, medium: $spacing, large: $spacing-large, remove: 0);
+
+@each $key, $space in $padding-vals{
+
+    .p-#{$key} {
+        padding: $space !important;
+    }
+}
+
+@for $i from 2 through 10 {
+
+    .p-#{$i} {
+        padding: $spacing*$i !important;
+    }
+}
+
+
+// horizontal
+.p-horizontal {
+    padding-left: $spacing !important;
+    padding-right: $spacing !important;
+
+}
+
+@each $key, $space in $padding-vals {
+
+    .p-horizontal-#{$key} {
+        padding-left: $space !important;
+        padding-right: $space !important;
+    }
+}
+
+@for $i from 2 through 10 {
+
+    .p-horizontal-#{$i} {
+        padding-left: $spacing*$i !important;
+        padding-right: $spacing*$i !important;
+    }
+}
+
+// vertical
+.p-vertical {
+    padding-top: $spacing !important;
+    padding-bottom: $spacing !important;
+}
+
+@each $key, $space in $padding-vals {
+
+    .p-vertical-#{$key} {
+        padding-top: $space !important;
+        padding-bottom: $space !important;
+    }
+}
+
+@for $i from 2 through 10 {
+
+    .p-vertical-#{$i} {
+        padding-top: $spacing*$i !important;
+        padding-bottom: $spacing*$i !important;
+    }
+}
+
+// sides
+@each $side in 'top' 'right' 'bottom' 'left' {
+
+    .p-#{$side} {
+        padding-#{$side}: $spacing !important;
+    }
+
+    @each $key, $space in $padding-vals {
+
+        .p-#{$side}-#{$key} {
+            padding-#{$side}: $space !important;
+        }
+    }
+
+    @for $i from 2 through 10 {
+
+        .p-#{$side}-#{$i} {
+            padding-#{$side}: $spacing*$i !important;
+        }
+    }
+}
+
+/*
+ |------------------------------------------
+ | Border
+ |------------------------------------------
+*/
+
+@for $i from 2 through 10 {
+
+    .b-#{$i} {
+        border: $border-width*$i $border-style $border-color !important;
+    }
+}
+
+
+// horizontal
+.b-horizontal {
+    border-left: $border-width $border-style $border-color !important;
+    border-right: $border-width $border-style $border-color !important;
+}
+
+@for $i from 2 through 10 {
+
+    .b-horizontal-#{$i} {
+        border-left: $border-width*$i $border-style $border-color !important;
+        border-right: $border-width*$i $border-style $border-color !important;
+    }
+}
+
+// vertical
+.b-vertical {
+    border-top: $border-width $border-style $border-color !important;
+    border-bottom: $border-width $border-style $border-color !important;
+}
+
+@for $i from 2 through 10 {
+
+    .b-vertical-#{$i} {
+        border-top: $border-width*$i $border-style $border-color !important;
+        border-bottom: $border-width*$i $border-style $border-color !important;
+    }
+}
+
+// sides
+@each $side in 'top' 'right' 'bottom' 'left' {
+
+    .b-#{$side} {
+        border-#{$side}: $border-width $border-style $border-color !important;
+    }
+
+    @for $i from 2 through 10 {
+
+        .b-#{$side}-#{$i} {
+            border-#{$side}: $border-width*$i $border-style $border-color !important;
+        }
+    }
+}
+
+/*
+ |------------------------------------------
+ | Text Lead
+ |------------------------------------------
+*/
+
+$text-lead-font-size        : 1.25rem !default;
+$text-lead-font-weight      : map-get($font-weights,light) !default;
+$text-lead-color            : transparentize(color(dark), 0.3) !default;
+$text-lead-inverse-color    : transparentize(color(light), 0.3) !default;
+
+.text-lead {
+    font-weight: $text-lead-font-weight;
+    color: $text-lead-color;
+
+    @include responsive-text($text-lead-font-size);
+}
+
+.theme-dark {
+    .text-lead, &.text-lead {
+        color: $text-lead-inverse-color;
+    }
+}
+
+/*
+ |------------------------------------------
+ | dash before
+ |------------------------------------------
+*/
+.d-before {
+    &::before {
+        content: '—';
+        padding-right: 5px;
+        color: #d4d4d4;
+    }
+
+}
+
+@each $key, $color in $colors {
+        
+    .d-before-#{$key} {
+        &::before {
+            content: '—';
+            padding-right: 5px;
+            color: $color;
+        }
+    }
+}

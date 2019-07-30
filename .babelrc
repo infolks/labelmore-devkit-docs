@@ -1,3 +1,12 @@
 {
-    "presets": ["@babel/typescript"]
+    "presets": ["@babel/typescript"],
+    "plugins": [
+        ["prismjs", {
+            "languages": ["javascript", "css", "markup", "json", "bash"],
+            "plugins": ["line-numbers", "normalize-whitespace"],
+            "theme": "okaidia",
+            "css": true
+        }],
+        "lodash"
+    ]
 }

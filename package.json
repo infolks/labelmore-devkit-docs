@@ -24,12 +24,24 @@
   },
   "homepage": "https://github.com/ArjunAtlast/vue-starter#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "axios": "^0.19.0",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "prismjs": "^1.16.0",
     "vue": "^2.6.10",
+    "vue-router": "^3.0.7",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jquery": "^3.3.30",
+    "@types/prismjs": "^1.16.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-prismjs": "^1.0.2",
     "css-loader": "^2.1.1",
     "file-loader": "^3.0.1",
     "node-sass": "^4.12.0",
@@ -38,9 +50,7 @@
     "typescript": "^3.4.5",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.10",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-typescript": "^7.3.3",
-    "babel-loader": "^8.0.6"
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.6"
   }
 }

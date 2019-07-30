@@ -6,16 +6,64 @@
 
 // COLORS
 $colors: (
-    primary: #E85359,
-    secondary: #C9EDEB,
-    muted: #FFF9E9,
-    tint: #FF9E92,
+    primary: #05386B,
+    secondary: #379683,
+    muted: #EDF5E1,
+    tint: #5CDB95,
     success: #359668,
     warning: #FFD54F,
     danger: #F13841,
     info: #49ADEB,
     dark: #3B3B3B,
-    light: #F2F2F2
+    light: #F4F4F4
 );
 
-$font-family: 'Poppins', sans-serif;
+// Breakpoints
+$breakpoints: (
+    small   : 640px,
+    medium  : 964px,
+    large   : 1200px,
+    xlarge  : 1600px,
+);
+
+// container max widths
+$containers: (
+    large   : 1600px,
+    medium  : 1200px,
+    small   : 900px,
+    xsmall  : 640px
+);
+
+// heading sizes
+$headings: (
+    hero    : 4.5rem,
+    xsmall  : 1rem,
+    small   : 1.5rem,
+    medium  : 2rem,
+    large   : 2.5rem,
+    xlarge  : 3rem,
+    xxlarge : 3.5rem
+);
+
+// font-weights
+$font-weights: (
+    light   : 300,
+    medium  : 500,
+    bold    : 700
+);
+
+$font-family-base           : 'Poppins', sans-serif;
+$font-size-base             : 15px;
+$font-size-small            : $font-size-base * 0.75;
+$font-size-large            : $font-size-base * 1.25;
+
+$line-height-base           : 2;
+
+$border-width               : 1px;
+$border-style               : solid;
+$border-color               : transparentize(#777, 0.8);
+$border-radius              : 4px;
+
+$spacing                    : 0.5rem;
+$spacing-small              : 0.75 * $spacing;
+$spacing-large              : 1.5 * $spacing;

@@ -1,3 +1,30 @@
 @mixin elevation($distance) {
     box-shadow: $distance $distance 2.5*$distance solid #cbcbcb, 0px 0px 2*$distance #cbcbcb;
 }
+
+@mixin responsive-text($font-size) {
+    font-size: $font-size * 0.75;
+
+    @media screen and (min-width: breakpoint(medium)) {
+        font-size: $font-size;
+    }
+
+    @media screen and (min-width: breakpoint(small)) {
+        font-size: $font-size * 0.875;
+    }
+}
+
+@mixin responsive-break($break) {
+
+    @if breakpoint-max($break) {
+        @media screen and (min-width: breakpoint($break)) and (max-width: breakpoint-max($break)) {
+            @content;
+        }
+    }
+
+    @else {
+        @media screen and (min-width: breakpoint($break)) {
+            @content;
+        }
+    }
+}
